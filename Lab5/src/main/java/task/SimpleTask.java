@@ -8,7 +8,7 @@ public class SimpleTask implements Task {
     }
     @Override
     public String execute() {
-        return name + " was executed";
+        return "Simple task " + name + " was executed";
     }
 
     public String getName() {

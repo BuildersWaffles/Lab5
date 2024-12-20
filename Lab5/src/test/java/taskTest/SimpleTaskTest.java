@@ -1,3 +1,5 @@
+package taskTest;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import task.*;
@@ -8,7 +10,7 @@ public class SimpleTaskTest {
     void simpleTaskExecuted() {
         Task simpleTask = new SimpleTask("Test task");
         String result = simpleTask.execute();
-        assertEquals("Test task was executed", result);
+        assertEquals("Simple task Test task was executed", result);
     }
     @Test
     void simpleTaskGetName() {
