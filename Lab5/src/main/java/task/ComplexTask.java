@@ -3,13 +3,11 @@ package task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComplexTask implements Task {
-    private final String name;
-    private final List<Task> subtasks;
+public class ComplexTask extends AbstractTask {
+    private List<Task> subtasks = new ArrayList<>();
 
     public ComplexTask(String name) {
-        this.name = name;
-        this.subtasks = new ArrayList<>();
+        super(name);
     }
 
     public void add(Task task) {
@@ -17,28 +15,17 @@ public class ComplexTask implements Task {
     }
 
     @Override
-    public String execute() {
-        StringBuilder result = new StringBuilder("Complex task " + name + " was executed with subtasks:");
-
+    protected String doExecute() {
+        StringBuilder result = new StringBuilder("Executing complex task: " + getName());
         for (Task subtask : subtasks) {
             result.append(subtask.execute());
         }
-
         return result.toString();
     }
 
     @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
     public String cleanUp() {
-        return "Cleaning up resources for complex task: " + name;
-    }
-
-    @Override
-    public boolean checkReadiness() {
-        return !subtasks.isEmpty();
+        super.cleanUp();
+        return "Additional cleanup for complex task: " + getName();
     }
 }

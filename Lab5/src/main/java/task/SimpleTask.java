@@ -1,28 +1,13 @@
 package task;
 
-public class SimpleTask implements Task {
-    private final String name;
-
+public class SimpleTask extends AbstractTask {
     public SimpleTask(String name) {
-        this.name = name;
-    }
-    @Override
-    public String execute() {
-        return "Simple task " + name + " was executed";
+        super(name);
     }
 
     @Override
-    public String getName() {
-        return name;
+    protected String doExecute() {
+        return "Executing simple task: " + getName();
     }
-
-    @Override
-    public String cleanUp() {
-        return "Cleaning up resources for simple task: " + name;
-    }
-    @Override
-    public boolean checkReadiness() {
-        return Boolean.TRUE;
-    }
-
 }
+

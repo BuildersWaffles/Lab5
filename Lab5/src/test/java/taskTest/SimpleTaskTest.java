@@ -11,8 +11,8 @@ public class SimpleTaskTest {
     void simpleTaskExecuted() {
         SimpleTask simpleTask = new SimpleTask("Test task");
         String result = simpleTask.execute();
-        String expected = "Starting task: Test task\nExecuting simple task: Test task\n" +
-                "Finishing task: Test task\nCleaning up resources for task: Test task\n";
+        String expected = "Starting task: Test taskExecuting simple task: Test task" +
+                "Finishing task: Test taskCleaning up resources for task: Test task";
 
         assertEquals(expected, result);
     }
