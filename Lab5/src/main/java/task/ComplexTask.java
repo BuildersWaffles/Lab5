@@ -27,7 +27,13 @@ public class ComplexTask implements Task {
         return result.toString();
     }
 
+    @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String cleanUp() {
+        return "";
     }
 }

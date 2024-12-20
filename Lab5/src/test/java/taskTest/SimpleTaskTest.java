@@ -21,7 +21,18 @@ public class SimpleTaskTest {
 
     @Test
     void simpleTaskCleanUp() {
-        Task simpleTasl = new SimpleTask("Test task");
-        String cleanUpResult = simpleTask.cleanup();
+        Task simpleTask = new SimpleTask("Test task");
+        String cleanUpResult = simpleTask.cleanUp();
+
+        assertEquals("Cleaning up resources for simple task: Test task", cleanUpResult);
     }
+
+    @Test
+    void simpleTaskIsReady() {
+        Task simpleTask = new SimpleTask("Test task");
+        Boolean readiness = simpleTask.checkReadiness();
+
+        assertEquals(Boolean.TRUE, readiness);
+    }
+
 }
