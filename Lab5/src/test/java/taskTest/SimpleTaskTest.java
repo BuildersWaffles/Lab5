@@ -2,7 +2,8 @@ package taskTest;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import task.*;
+import task.Task;
+import task.SimpleTask;
 
 public class SimpleTaskTest {
 
