@@ -18,4 +18,10 @@ public class SimpleTaskTest {
         Task simpleTask = new SimpleTask("Test task");
         assertEquals("Test task", ((SimpleTask) simpleTask).getName());
     }
+
+    @Test
+    void simpleTaskCleanUp() {
+        Task simpleTasl = new SimpleTask("Test task");
+        String cleanUpResult = simpleTask.cleanup();
+    }
 }

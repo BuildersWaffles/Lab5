@@ -12,7 +12,6 @@ public class ComplexTaskTest {
         ComplexTask complexTask = new ComplexTask("complex task");
 
         complexTask.add(subtask1);
-        complexTask.execute();
 
         String result = complexTask.execute();
         assertEquals("Complex task complex task was executed with subtasks:Simple task subtask 1 was executed", result);
