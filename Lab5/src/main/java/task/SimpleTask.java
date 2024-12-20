@@ -20,4 +20,9 @@ public class SimpleTask implements Task {
     public String cleanUp() {
         return "Cleaning up resources for simple task: " + name;
     }
+    @Override
+    public boolean checkReadiness() {
+        return Boolean.TRUE;
+    }
+
 }

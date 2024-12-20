@@ -23,4 +23,16 @@ public class ComplexTaskTest {
         assertEquals("Test complex task", сomplexTask.getName());
 
     }
+
+    @Test
+    void testComplexTaskReadiness() {
+        ComplexTask complexTask = new ComplexTask("Main Task");
+
+        assertEquals(Boolean.FALSE, complexTask.checkReadiness(),
+                "ComplexTask should not be ready if there are no subtasks.");
+
+        complexTask.add(new SimpleTask("Subtask"));
+        assertEquals(Boolean.TRUE, complexTask.checkReadiness(),
+                "ComplexTask should be ready if it contains subtasks.");
+    }
 }

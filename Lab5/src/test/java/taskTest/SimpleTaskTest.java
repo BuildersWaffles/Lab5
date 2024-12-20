@@ -9,14 +9,14 @@ public class SimpleTaskTest {
 
     @Test
     void simpleTaskExecuted() {
-        Task simpleTask = new SimpleTask("Test task");
+        SimpleTask simpleTask = new SimpleTask("Test task");
         String result = simpleTask.execute();
         assertEquals("Simple task Test task was executed", result);
     }
     @Test
     void simpleTaskGetName() {
-        Task simpleTask = new SimpleTask("Test task");
-        assertEquals("Test task", ((SimpleTask) simpleTask).getName());
+        SimpleTask simpleTask = new SimpleTask("Test task");
+        assertEquals("Test task", simpleTask.getName());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class SimpleTaskTest {
 
     @Test
     void simpleTaskIsReady() {
-        Task simpleTask = new SimpleTask("Test task");
+        SimpleTask simpleTask = new SimpleTask("Test task");
         Boolean readiness = simpleTask.checkReadiness();
 
         assertEquals(Boolean.TRUE, readiness);

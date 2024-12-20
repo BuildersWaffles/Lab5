@@ -36,4 +36,8 @@ public class ComplexTask implements Task {
     public String cleanUp() {
         return "";
     }
+    @Override
+    public boolean checkReadiness() {
+        return !subtasks.isEmpty();
+    }
 }
