@@ -6,13 +6,13 @@ public class SimpleTaskTest {
 
     @Test
     void simpleTaskExecuted() {
-        Task simpleTask = new SimpleTask();
+        Task simpleTask = new SimpleTask("Test task");
         String result = simpleTask.execute();
-        assertEquals("Simple task was executed", result);
+        assertEquals("Test task was executed", result);
     }
     @Test
     void simpleTaskGetName() {
         Task simpleTask = new SimpleTask("Test task");
-        assertEquals("Test task", simpleTask.getName());
+        assertEquals("Test task", ((SimpleTask) simpleTask).getName());
     }
 }
