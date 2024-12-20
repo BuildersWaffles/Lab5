@@ -1,12 +1,18 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+import task.*;
 
 public class SimpleTaskTest {
 
     @Test
-     void simpleTaskGetExecuted() {
+    void simpleTaskExecuted() {
         Task simpleTask = new SimpleTask();
-        assertEquals("Simple task was executed", SimpleTask.execute);
+        String result = simpleTask.execute();
+        assertEquals("Simple task was executed", result);
+    }
+    @Test
+    void simpleTaskGetName() {
+        Task simpleTask = new SimpleTask("Test task");
+        assertEquals("Test task", simpleTask.getName());
     }
 }
