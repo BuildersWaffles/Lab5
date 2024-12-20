@@ -11,8 +11,12 @@ public class SimpleTaskTest {
     void simpleTaskExecuted() {
         SimpleTask simpleTask = new SimpleTask("Test task");
         String result = simpleTask.execute();
-        assertEquals("Simple task Test task was executed", result);
+        String expected = "Starting task: Test task\nExecuting simple task: Test task\n" +
+                "Finishing task: Test task\nCleaning up resources for task: Test task\n";
+
+        assertEquals(expected, result);
     }
+
     @Test
     void simpleTaskGetName() {
         SimpleTask simpleTask = new SimpleTask("Test task");
@@ -20,19 +24,10 @@ public class SimpleTaskTest {
     }
 
     @Test
-    void simpleTaskCleanUp() {
-        Task simpleTask = new SimpleTask("Test task");
-        String cleanUpResult = simpleTask.cleanUp();
-
-        assertEquals("Cleaning up resources for simple task: Test task", cleanUpResult);
-    }
-
-    @Test
     void simpleTaskIsReady() {
         SimpleTask simpleTask = new SimpleTask("Test task");
         Boolean readiness = simpleTask.checkReadiness();
 
-        assertEquals(Boolean.TRUE, readiness);
+        assertTrue(readiness);
     }
-
 }

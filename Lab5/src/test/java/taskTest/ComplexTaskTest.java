@@ -14,32 +14,30 @@ public class ComplexTaskTest {
         complexTask.add(subtask1);
 
         String result = complexTask.execute();
-        assertEquals("Complex task complex task was executed with subtasks:Simple task subtask 1 was executed", result);
+        String expected = "Starting task: complex task\nExecuting complex task: complex task\n" +
+                "Starting task: subtask 1\nExecuting simple task: subtask 1\n" +
+                "Finishing task: subtask 1\nCleaning up resources for task: subtask 1\n" +
+                "Finishing task: complex task\nCleaning up resources for task: complex task\n" +
+                "Additional cleanup for complex task: complex task\n";
+
+        assertEquals(expected, result);
     }
 
     @Test
     void complexTaskGetName() {
-        ComplexTask сomplexTask = new ComplexTask("Test complex task");
-        assertEquals("Test complex task", сomplexTask.getName());
-
+        ComplexTask complexTask = new ComplexTask("Test complex task");
+        assertEquals("Test complex task", complexTask.getName());
     }
-    
-    @Test
-    void complexTaskCleanUp() {
-        ComplexTask complexTask = new ComplexTask("Test task");
-        String cleanUpResult = complexTask.cleanUp();
 
-        assertEquals("Cleaning up resources for complex task: Test task", cleanUpResult);
-    }
     @Test
     void testComplexTaskReadiness() {
         ComplexTask complexTask = new ComplexTask("Main Task");
 
-        assertEquals(Boolean.FALSE, complexTask.checkReadiness(),
+        assertFalse(complexTask.checkReadiness(),
                 "ComplexTask should not be ready if there are no subtasks.");
 
         complexTask.add(new SimpleTask("Subtask"));
-        assertEquals(Boolean.TRUE, complexTask.checkReadiness(),
+        assertTrue(complexTask.checkReadiness(),
                 "ComplexTask should be ready if it contains subtasks.");
     }
 }
