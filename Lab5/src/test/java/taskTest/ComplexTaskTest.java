@@ -23,7 +23,14 @@ public class ComplexTaskTest {
         assertEquals("Test complex task", сomplexTask.getName());
 
     }
+    
+    @Test
+    void complexTaskCleanUp() {
+        ComplexTask complexTask = new ComplexTask("Test task");
+        String cleanUpResult = complexTask.cleanUp();
 
+        assertEquals("Cleaning up resources for complex task: Test task", cleanUpResult);
+    }
     @Test
     void testComplexTaskReadiness() {
         ComplexTask complexTask = new ComplexTask("Main Task");
