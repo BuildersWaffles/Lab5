@@ -1,10 +1,13 @@
 package task;
 
-public class SimpleTask implements Task {
-
-    @Override
-    public String execute() {
-        return "Simple task was executed";
+public class SimpleTask extends AbstractTask {
+    public SimpleTask(String name) {
+        super(name);
     }
 
+    @Override
+    protected String doExecute() {
+        return "Executing simple task: " + getName();
+    }
 }
+
